@@ -30,6 +30,7 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/billie2/proprietary/system_ext/etc/permissions/telephonyservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephonyservice.xml \
     vendor/oneplus/billie2/proprietary/system_ext/etc/seccomp_policy/wfdservice.policy:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/seccomp_policy/wfdservice.policy \
     vendor/oneplus/billie2/proprietary/system_ext/etc/wfdconfigsink.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/wfdconfigsink.xml \
+    vendor/oneplus/billie2/proprietary/vendor/bin/hw/vendor.qti.hardware.display.composer-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.qti.hardware.display.composer-service \
     vendor/oneplus/billie2/proprietary/vendor/etc/acdbdata/adsp_avs_config.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/adsp_avs_config.acdb \
     vendor/oneplus/billie2/proprietary/vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.00.pmd:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.00.pmd \
     vendor/oneplus/billie2/proprietary/vendor/etc/acdbdata/nn_ns_models/fai__2.2.0_0.1__3.0.0_0.0__eai_1.00.pmd:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/nn_ns_models/fai__2.2.0_0.1__3.0.0_0.0__eai_1.00.pmd \
@@ -363,6 +364,7 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/billie2/proprietary/vendor/lib64/camera/fdconfigpreviewlite.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/fdconfigpreviewlite.bin \
     vendor/oneplus/billie2/proprietary/vendor/lib64/camera/fdconfigvideo.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/fdconfigvideo.bin \
     vendor/oneplus/billie2/proprietary/vendor/lib64/camera/fdconfigvideolite.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/fdconfigvideolite.bin \
+    vendor/oneplus/billie2/proprietary/vendor/lib64/libsdedrm.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsdedrm.so \
     vendor/oneplus/billie2/proprietary/vendor/radio/qcril_database/qcril.db:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/qcril.db \
     vendor/oneplus/billie2/proprietary/vendor/radio/qcril_database/upgrade/0_initial.sql:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/upgrade/0_initial.sql \
     vendor/oneplus/billie2/proprietary/vendor/radio/qcril_database/upgrade/1_version_intro.sql:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/upgrade/1_version_intro.sql \
@@ -381,6 +383,7 @@ PRODUCT_PACKAGES += \
     libGLESv2_adreno \
     libq3dtools_adreno \
     libq3dtools_esx \
+    android.hardware.bluetooth@1.0-impl-qti \
     vendor.qti.hardware.bluetooth_audio@2.0-impl \
     vendor.qti.hardware.bluetooth_sar@1.1-impl \
     vendor.qti.hardware.btconfigstore@1.0-impl \
@@ -403,10 +406,12 @@ PRODUCT_PACKAGES += \
     libadreno_utils \
     libadsprpc \
     libbluetooth_audio_session_qti \
+    libbtnv \
     libc2d30_bltlib \
     libcamxexternalformatutils \
     libcdsp_default_listener \
     libcdsprpc \
+    libconfigdb \
     libdiag \
     libdsi_netctrl \
     libdsutils \
@@ -417,8 +422,10 @@ PRODUCT_PACKAGES += \
     libidl \
     libllvm-glnext \
     libllvm-qcom \
+    libmdmdetect \
     libmdsprpc \
-    libmmosal \
+    libmmosal_vendor \
+    libnetmgr \
     libperfconfig \
     libperfgluelayer \
     libperfioctl \
@@ -433,6 +440,7 @@ PRODUCT_PACKAGES += \
     libqmi_common_so \
     libqmi_csi \
     libqmi_encdec \
+    libqmi_legacy \
     libqmiservices \
     libqti-perfd-client \
     libqti-perfd \
@@ -446,11 +454,10 @@ PRODUCT_PACKAGES += \
     libsdsprpc \
     libsysmon_cdsp_skel \
     libthermalclient \
+    libxml \
     vendor.qti.hardware.bluetooth_sar@1.0 \
     vendor.qti.hardware.bluetooth_sar@1.1 \
     vendor.qti.hardware.dsp@1.0 \
-    vendor.qti.hardware.perf@2.1 \
-    vendor.qti.hardware.perf@2.2 \
     sound_trigger.primary.bengal \
     libFileMux_proprietary \
     libOmxDsdDec \
@@ -503,7 +510,7 @@ PRODUCT_PACKAGES += \
     libqcreverb \
     libqcvirt \
     libshoebox \
-    vendor.qti.hardware.wifidisplaysession@1.0 \
+    vendor.qti.hardware.wifidisplaysession@1.0_vendor \
     vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl \
     com.qti.eeprom.truly_cmb433 \
     com.qti.sensor.soda_cxt_gc02k0_macro \
@@ -568,7 +575,7 @@ PRODUCT_PACKAGES += \
     com.qti.feature2.serializer \
     com.qti.feature2.stub \
     com.qti.feature2.swmf \
-    com.qualcomm.qti.dpm.api@1.0 \
+    com.qualcomm.qti.dpm.api@1.0_vendor \
     com.qualcomm.qti.imscmservice@1.0 \
     com.qualcomm.qti.imscmservice@2.0 \
     com.qualcomm.qti.imscmservice@2.1 \
@@ -578,7 +585,6 @@ PRODUCT_PACKAGES += \
     com.qualcomm.qti.uceservice@2.2 \
     deviceInfoServiceModule \
     fp_hal_extension \
-    android.hardware.bluetooth@1.0-impl-qti \
     android.hardware.gatekeeper@1.0-impl-qti \
     android.hardware.gnss@2.1-impl-qti \
     camera.qcom \
@@ -628,6 +634,8 @@ PRODUCT_PACKAGES += \
     libVDUpScale \
     libadsp_default_listener \
     libaoa \
+    libapsexif \
+    libapsjpeg \
     libarcsoft_calibverify_TriCamera \
     libarcsoft_distortion_correction \
     libarcsoft_dualcam_bokeh_api \
@@ -644,9 +652,11 @@ PRODUCT_PACKAGES += \
     libarcsoft_supernight \
     libarcsoft_tricam_calibration \
     libarcsoft_tricam_verification \
+    libasn1cper \
+    libasn1crt \
+    libasn1crtx \
     libbatching \
     libbitmlengine \
-    libbtnv \
     libcacertclient \
     libcamera_nn_stub \
     libcamerapostproc \
@@ -668,7 +678,6 @@ PRODUCT_PACKAGES += \
     libcneoplookup \
     libcneqmiutils \
     libcom.qti.chinodeutils \
-    libconfigdb \
     libcpion \
     libcvface_api \
     libdataitems \
@@ -707,13 +716,11 @@ PRODUCT_PACKAGES += \
     liblowi_client \
     liblowi_wifihal \
     liblqe \
-    libmdmdetect \
     libmeters \
     libminkdescriptor \
     libminksocket \
     libmmcamera_mfnr \
     libmpbase \
-    libnetmgr \
     libnetmgr_common \
     libnetmgr_nr_fusion \
     libnetmgr_rmnet_ext \
@@ -748,7 +755,7 @@ PRODUCT_PACKAGES += \
     libril-qcril-hook-oem \
     librilqmiservices \
     librpmb \
-    libsdedrm \
+    libsdedrm_vendor \
     libsdm-color \
     libsdm-colormgr-algo \
     libsdm-diag \
@@ -780,8 +787,9 @@ PRODUCT_PACKAGES += \
     libwms \
     libwqe \
     libwvhidl \
-    libxml \
     libxtadapter \
+    libxtwifi_server_protocol \
+    libxtwifi_server_protocol_uri_v3 \
     libwvdrmengine \
     qcrild_librilutils \
     qtibus \
@@ -817,7 +825,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.gnss@4.0-service \
     vendor.qti.gnss@4.0 \
     vendor.qti.hardware.alarm@1.0 \
-    vendor.qti.hardware.btconfigstore@2.0 \
     vendor.qti.hardware.cacert@1.0 \
     vendor.qti.hardware.camera.postproc@1.0-service-impl \
     vendor.qti.hardware.data.cne.internal.api@1.0 \
@@ -879,7 +886,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.ims.rcsconfig@2.0 \
     vendor.qti.ims.rcsconfig@2.1 \
     vendor.qti.imsrtpservice@3.0-service-Impl \
-    vendor.qti.imsrtpservice@3.0 \
+    vendor.qti.imsrtpservice@3.0_vendor \
     vendor.qti.latency@2.0 \
     capi_v2_aptX_CLHDADV_Encoder \
     capi_v2_aptX_CLHDAD_Speech_Decoder \
@@ -912,11 +919,6 @@ PRODUCT_PACKAGES += \
     libsns_device_mode_skel \
     libsns_low_lat_stream_skel \
     com.qualcomm.qti.ant@1.0 \
-    com.qualcomm.qti.dpm.api@1.0 \
-    libdpmctmgr \
-    libdpmfdmgr \
-    libdpmframework \
-    libdpmtcm \
     libmmosal \
     libmmparser_lite \
     libmmrtpdecoder \
@@ -934,20 +936,25 @@ PRODUCT_PACKAGES += \
     libwfduibcsinkinterface \
     libwfduibcsrc \
     libwfduibcsrcinterface \
-    vendor.qti.diaghal@1.0 \
     com.qualcomm.qti.wifidisplayhal@1.0 \
     libwfdavenhancements \
     libwfdmmsrc_system \
     libwfdservice \
     vendor.qti.hardware.wifidisplaysession@1.0 \
+    com.qualcomm.qti.dpm.api@1.0 \
     lib-imsvideocodec \
     lib-imsvt \
     lib-imsvtextutils \
     lib-imsvtutils \
     libdiag_system \
+    libdpmctmgr \
+    libdpmfdmgr \
+    libdpmframework \
+    libdpmtcm \
     libimscamera_jni \
     libimsmedia_jni \
     libwfdnative \
+    vendor.qti.diaghal@1.0 \
     vendor.qti.imsrtpservice@3.0 \
     CACertService \
     CneApp \
@@ -995,7 +1002,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.esepowermanager@1.1-service \
     vendor.qti.hardware.alarm@1.0-service \
     vendor.qti.hardware.capabilityconfigstore@1.0-service \
-    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.composer-service_vendor \
     vendor.qti.hardware.iop@2.0-service \
     vendor.qti.hardware.perf@2.2-service \
     vendor.qti.hardware.qccvndhal@1.0-service \
