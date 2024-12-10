@@ -12658,8 +12658,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libsdedrm_vendor",
-    stem: "libsdedrm",
+    name: "libsdedrm",
     owner: "oneplus",
     strip: {
         none: true,
@@ -12816,7 +12815,7 @@ cc_prebuilt_library_shared {
                 "libsdmutils",
                 "libdrm",
                 "libdrmutils",
-                "libsdedrm_vendor",
+                "libsdedrm",
                 "libc++",
                 "libc",
                 "libm",
@@ -19390,8 +19389,7 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "vendor.qti.hardware.display.composer-service_vendor",
-    stem: "vendor.qti.hardware.display.composer-service",
+    name: "vendor.qti.hardware.display.composer-service",
     owner: "oneplus",
     target: {
         android_arm64: {
@@ -19399,7 +19397,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.qti.hardware.display.composer-service",
             ],
             shared_libs: [
-                "libhistogram_vendor",
+                "libhistogram",
                 "libbinder",
                 "libhardware",
                 "libutils",
@@ -19410,7 +19408,7 @@ cc_prebuilt_binary {
                 "libhidlbase",
                 "libfmq",
                 "libhardware_legacy",
-                "libsdmcore_vendor",
+                "libsdmcore",
                 "libqservice",
                 "libqdutils",
                 "libqdMetaData",
